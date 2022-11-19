@@ -16,11 +16,16 @@ enum NetworkClientError: Error {
 // MARK: register network services
 protocol Networkable {
     var provider: MoyaProvider<MovieAPIService> { get }
+    func fetchMovie(by id: String, completion: @escaping (Result<OMDBResult, NetworkClientError>) -> ())
     func fetchSearchMovies(page: String, title: String, completion: @escaping (Result<OMDBResult, NetworkClientError>) -> ())
 }
 
 final class NetworkManager: Networkable {
     var provider = MoyaProvider<MovieAPIService>(plugins: [NetworkLoggerPlugin()])
+    
+    func fetchMovie(by id: String, completion: @escaping (Result<OMDBResult, NetworkClientError>) -> ()) {
+        request(target: .getMovie(id: id), completion: completion)
+    }
     
     func fetchSearchMovies(page: String, title: String, completion: @escaping (Result<OMDBResult, NetworkClientError>) -> ()) {
         request(target: .searchMovies(page: page, title: title), completion: completion)
