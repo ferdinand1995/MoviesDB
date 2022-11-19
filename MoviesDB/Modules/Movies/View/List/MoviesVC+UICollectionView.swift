@@ -14,37 +14,26 @@ extension MoviesVC: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //        return vm.photosResult.count
-        return 0
+        return presenter?.countMovies() ?? 0
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withClass: MovieContentCell.self, for: indexPath)
-//        guard let imageUrls = vm.photosResult[indexPath.row].urls?.smallS3 else { return cell }
-//        guard let color = vm.photosResult[indexPath.row].color else { return cell }
-//        cell.confiCell(photoURL: imageUrls, color: color)
+        guard let imageUrls = presenter?.getPoster(movie: indexPath) else { return cell }
+        cell.confiCell(photoURL: imageUrls)
         return cell
     }
 }
 
 // MARK: CollectionView Delegate
-extension MoviesVC: UICollectionViewDelegate {
-
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-
-//        guard indexPath.row == self.vm.photosResult.count - 1 else { return }
-//        vm.fetchListPhotos()
-    }
-}
+extension MoviesVC: UICollectionViewDelegate { }
 
 // MARK: Dynamic Height CollectionView
 extension MoviesVC: PinterestLayoutDelegate {
     func collectionView(collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath: IndexPath) -> CGFloat {
-//        guard let width = vm.photosResult[indexPath.item].width else { return .zero }
-//        let height = (vm.photosResult[indexPath.item].height ?? 400) / (width / 400)
-//        return CGFloat(height)
-        return 0
+        let randomHeight = Int.random(in: 240...480)
+        return CGFloat(randomHeight)
     }
 }
 

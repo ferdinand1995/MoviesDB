@@ -18,12 +18,11 @@ final class MovieAPIServiceTests: XCTestCase {
     }
 
     func testFetchMovies() {
-        networkManager?.fetchSearchMovies(page: "1", query: "", completion: { result in
-            switch result {
-            case .success(let response):
+        networkManager?.fetchSearchMovies(page: "1", title: "marvel", completion: { result in
+            if case let .success(response) = result {
+                XCTAssertNotNil(response.search)
+                XCTAssertTrue(response.search!.count > 0)
                 XCTAssertNotNil(response)
-            case .failure(let error):
-                XCTAssert(true, error.localizedDescription)
             }
         })
     }

@@ -25,6 +25,7 @@ extension MoviesVC: UITextFieldDelegate {
     }
 
     func textFieldDidEndEditing(_ textField: UITextField) {
-//        self.vm.fetchSearchPhotos(query: textField.text ?? "")
+        guard let text = textField.text else { return }
+        self.presenter?.searchMovies(text)
     }
 }

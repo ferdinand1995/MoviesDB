@@ -64,7 +64,7 @@ struct Rating: Codable {
 // MARK: - Search
 struct Search: Codable {
     let title, year, imdbID: String?
-    let type: TypeOfFilm?
+    let type: String?
     let poster: String?
 
     enum CodingKeys: String, CodingKey {
@@ -75,8 +75,3 @@ struct Search: Codable {
         case poster = "Poster"
     }
 }
-
-enum TypeOfFilm: String, Codable {
-    case movie = "movie"
-}
-

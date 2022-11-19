@@ -56,9 +56,8 @@ class MovieContentCell: UICollectionViewCell {
     }
 
     // MARK: Public Interface
-    func confiCell(photoURL: String, color: String) {
+    func confiCell(photoURL: String) {
         /// - NOTE: Init UI
-        contentImageView.backgroundColor = UIColor.hexStringToUIColor(color)
         guard let url = URL(string: photoURL) else { return }
         contentImageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
         contentImageView.sd_imageIndicator?.startAnimatingIndicator()

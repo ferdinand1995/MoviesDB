@@ -46,7 +46,7 @@ extension MovieAPIService: TargetType {
         case let .searchMovies(page, title):
             return .requestParameters(parameters: [
                 "apikey": apiKey,
-                "per_page": page,
+                "page": page,
                 "s": title
             ], encoding: URLEncoding.queryString)
         }

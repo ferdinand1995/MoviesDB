@@ -1,76 +1,76 @@
 {
     "Search": [
         {
-            "Title": "The Nightmare Before Christmas",
-            "Year": "1993",
-            "imdbID": "tt0107688",
+            "Title": "Captain Marvel",
+            "Year": "2019",
+            "imdbID": "tt4154664",
             "Type": "movie",
-            "Poster": "https://m.media-amazon.com/images/M/MV5BNWE4OTNiM2ItMjY4Ni00ZTViLWFiZmEtZGEyNGY2ZmNlMzIyXkEyXkFqcGdeQXVyMDU5NDcxNw@@._V1_SX300.jpg"
+            "Poster": "https://m.media-amazon.com/images/M/MV5BMTE0YWFmOTMtYTU2ZS00ZTIxLWE3OTEtYTNiYzBkZjViZThiXkEyXkFqcGdeQXVyODMzMzQ4OTI@._V1_SX300.jpg"
         },
         {
-            "Title": "A Nightmare on Elm Street",
-            "Year": "1984",
-            "imdbID": "tt0087800",
-            "Type": "movie",
-            "Poster": "https://m.media-amazon.com/images/M/MV5BNzFjZmM1ODgtMDBkMS00NWFlLTg2YmUtZjc3ZTgxMjE1OTI2L2ltYWdlXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SX300.jpg"
+            "Title": "Ms. Marvel",
+            "Year": "2022",
+            "imdbID": "tt10857164",
+            "Type": "series",
+            "Poster": "https://m.media-amazon.com/images/M/MV5BZmQ3OTZkNDUtNTU0Mi00ZjE4LTgyNTUtY2E4NWRmNDUxMzkyXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_SX300.jpg"
         },
         {
-            "Title": "Nightmare Alley",
-            "Year": "2021",
-            "imdbID": "tt7740496",
+            "Title": "Marvel One-Shot: Agent Carter",
+            "Year": "2013",
+            "imdbID": "tt3067038",
             "Type": "movie",
-            "Poster": "https://m.media-amazon.com/images/M/MV5BOTI4NDhhNGEtZjQxZC00ZTRmLThmZTctOGJmY2ZlOTc0ZGY0XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg"
+            "Poster": "https://m.media-amazon.com/images/M/MV5BZDIwZTM4M2QtMWFhYy00N2VmLWFlMjItMzI3NjBjYTc0OTMxXkEyXkFqcGdeQXVyNTE1NjY5Mg@@._V1_SX300.jpg"
         },
         {
-            "Title": "A Nightmare on Elm Street",
-            "Year": "2010",
-            "imdbID": "tt1179056",
+            "Title": "Marvel One-Shot: All Hail the King",
+            "Year": "2014",
+            "imdbID": "tt3438640",
             "Type": "movie",
-            "Poster": "https://m.media-amazon.com/images/M/MV5BODIxMTQ0NTIxM15BMl5BanBnXkFtZTcwMzY1NDAyMw@@._V1_SX300.jpg"
+            "Poster": "https://m.media-amazon.com/images/M/MV5BZGFkMTZkMDQtNzM4Yy00YWEwLTkzOWEtZTMyNDRlNmJhYWJhXkEyXkFqcGdeQXVyNTE1NjY5Mg@@._V1_SX300.jpg"
         },
         {
-            "Title": "A Nightmare on Elm Street 3: Dream Warriors",
-            "Year": "1987",
-            "imdbID": "tt0093629",
+            "Title": "Marvel One-Shot: Item 47",
+            "Year": "2012",
+            "imdbID": "tt2247732",
             "Type": "movie",
-            "Poster": "https://m.media-amazon.com/images/M/MV5BMjFkYTEwNjAtYWU1YS00NTMyLTkwYmUtZjEyMjZjMDg5Njc5XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
+            "Poster": "https://m.media-amazon.com/images/M/MV5BMjNlMzAxNmQtOGEwZi00NTEyLWI0NWYtMTlhNmE2YTA3ZDVhXkEyXkFqcGdeQXVyNTE1NjY5Mg@@._V1_SX300.jpg"
         },
         {
-            "Title": "A Nightmare on Elm Street 2: Freddy's Revenge",
-            "Year": "1985",
-            "imdbID": "tt0089686",
+            "Title": "Marvel One-Shot: A Funny Thing Happened on the Way to Thor's Hammer",
+            "Year": "2011",
+            "imdbID": "tt2011109",
             "Type": "movie",
-            "Poster": "https://m.media-amazon.com/images/M/MV5BZjBmNWNiN2ItYzM0ZC00MWQyLWFmZjctMmZkNTVhMjE1ZjFhXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
+            "Poster": "https://m.media-amazon.com/images/M/MV5BYmVlYTg3N2QtMWM2OS00YWQyLWI2M2MtMDc0ZjBkZjk1MTY3XkEyXkFqcGdeQXVyNTE1NjY5Mg@@._V1_SX300.jpg"
         },
         {
-            "Title": "New Nightmare",
-            "Year": "1994",
-            "imdbID": "tt0111686",
+            "Title": "Marvel One-Shot: The Consultant",
+            "Year": "2011",
+            "imdbID": "tt2011118",
             "Type": "movie",
-            "Poster": "https://m.media-amazon.com/images/M/MV5BMzcxYjI5OTgtMmYyYS00ZTFhLWI3NzktOTBmMzQyNWNkNTk5XkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_SX300.jpg"
+            "Poster": "https://m.media-amazon.com/images/M/MV5BNGE4YjU5MDAtYzYzMC00M2RlLTk0NDgtNDU1MjgyMGI0MjI3XkEyXkFqcGdeQXVyNTE1NjY5Mg@@._V1_SX300.jpg"
         },
         {
-            "Title": "A Nightmare on Elm Street 4: The Dream Master",
-            "Year": "1988",
-            "imdbID": "tt0095742",
-            "Type": "movie",
-            "Poster": "https://m.media-amazon.com/images/M/MV5BN2IwODlmN2ItOGU5NC00ZTBhLWJhZjItMTdkOTI1NTU4YzdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
+            "Title": "Marvel Studios: Legends",
+            "Year": "2021–",
+            "imdbID": "tt13650480",
+            "Type": "series",
+            "Poster": "https://m.media-amazon.com/images/M/MV5BMzdiNGVlZGYtMGY1Ni00OGU1LTlmYzEtZDBjYjk3OGM3YTNkXkEyXkFqcGdeQXVyNzk3NDUzNTc@._V1_SX300.jpg"
         },
         {
-            "Title": "Freddy's Dead: The Final Nightmare",
-            "Year": "1991",
-            "imdbID": "tt0101917",
-            "Type": "movie",
-            "Poster": "https://m.media-amazon.com/images/M/MV5BOGQ3MTdiYjQtZmU1NC00NmQ5LTg2YTMtYWI0NjA5MzUwZTFkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
+            "Title": "Lego Marvel Super Heroes",
+            "Year": "2013",
+            "imdbID": "tt2620204",
+            "Type": "game",
+            "Poster": "https://m.media-amazon.com/images/M/MV5BOTA5ODA2NTI2M15BMl5BanBnXkFtZTgwNTcxMzU1MDE@._V1_SX300.jpg"
         },
         {
-            "Title": "A Nightmare on Elm Street 5: The Dream Child",
-            "Year": "1989",
-            "imdbID": "tt0097981",
-            "Type": "movie",
-            "Poster": "https://m.media-amazon.com/images/M/MV5BZmMzNzc1ZTItMDJiOS00Y2UxLWEzZmEtMzBiNGNkYzNiNDBkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
+            "Title": "Marvel Studios: Assembled",
+            "Year": "2021–",
+            "imdbID": "tt14094206",
+            "Type": "series",
+            "Poster": "https://m.media-amazon.com/images/M/MV5BNWMyNWYyMmYtZjNiZi00MzFmLTg2MjYtYWEzZWY1MzBhY2I2XkEyXkFqcGdeQXVyNTE1NjY5Mg@@._V1_SX300.jpg"
         }
     ],
-    "totalResults": "1014",
+    "totalResults": "292",
     "Response": "True"
 }

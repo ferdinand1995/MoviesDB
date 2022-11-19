@@ -10,6 +10,7 @@ import SnapKit
 
 class MoviesVC: UIViewController {
 
+    // MARK: UIView
     private(set) lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: PinterestLayout())
         collectionView.showsVerticalScrollIndicator = false
@@ -22,7 +23,7 @@ class MoviesVC: UIViewController {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 32)
-        label.text = "Unsplash Kraken"
+        label.text = "OMDb API"
         label.textColor = UIColor.softBlackDarkMode
         return label
     }()
@@ -67,6 +68,9 @@ class MoviesVC: UIViewController {
         stackView.distribution = .fill
         return stackView
     }()
+    
+    // MARK: Variables
+    var presenter: MoviesPresentation?
 
     // MARK: Lifecycle
     override func viewDidLoad() {
@@ -75,6 +79,7 @@ class MoviesVC: UIViewController {
         initLayout()
         registerForKeyboardNotifications()
         self.hideKeyboardWhenTappedAround()
+        presenter?.viewDidLoad()
     }
 
     // MARK: Initialize
@@ -168,5 +173,18 @@ class MoviesVC: UIViewController {
 
     @objc func keyboardHidden(_ notification: NSNotification) {
 //        recentSearchVC.remove()
+    }
+}
+
+extension MoviesVC: MoviesView {
+    
+    func showErrorMessage() {
+        let errorTitle: String = "Error"
+        let alertController = UIAlertController(title: errorTitle, message: "Ooops, something went wrong. Please try again later!")
+        self.present(alertController, animated: true)
+    }
+    
+    func showMoviesData() {
+        self.collectionView.reloadData()
     }
 }
