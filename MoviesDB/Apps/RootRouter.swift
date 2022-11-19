@@ -11,7 +11,7 @@ protocol RootWireframe: AnyObject {
     func presentMainScreen(in window: UIWindow)
 }
 
-class RootRouter: RootWireframe {
+final class RootRouter: RootWireframe {
     
     func presentMainScreen(in window: UIWindow) {
         window.makeKeyAndVisible()

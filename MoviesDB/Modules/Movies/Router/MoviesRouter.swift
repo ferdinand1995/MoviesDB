@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MoviesRouter: MoviesWireframe {
+final class MoviesRouter: MoviesWireframe {
     
     weak var viewController: UIViewController?
     
