@@ -27,13 +27,16 @@ extension MoviesVC: UICollectionViewDataSource {
 }
 
 // MARK: CollectionView Delegate
-extension MoviesVC: UICollectionViewDelegate { }
+extension MoviesVC: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        presenter?.didSelect(movie: indexPath)
+    }
+}
 
 // MARK: Dynamic Height CollectionView
 extension MoviesVC: PinterestLayoutDelegate {
     func collectionView(collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath: IndexPath) -> CGFloat {
-        let randomHeight = Int.random(in: 240...480)
-        return CGFloat(randomHeight)
+        return CGFloat(300)
     }
 }
 

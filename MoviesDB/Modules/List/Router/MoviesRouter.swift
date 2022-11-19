@@ -33,7 +33,8 @@ final class MoviesRouter: MoviesWireframe {
         return navigation
     }
     
-    func presentDetails(forMovie movie: OMDBResult) {
-        
+    func presentDetails(movie imdbId: String) {
+        let detailsModuleViewController = MovieDetailRouter.assembleModule(imdbId)
+        viewController?.navigationController?.pushViewController(detailsModuleViewController, animated: true)
     }
 }

@@ -16,7 +16,9 @@ final class MoviesPresenter: MoviesPresentation {
     private var moviesResult: OMDBResult?
     private var index: Int = 1
     
-    func viewDidLoad() {}
+    func viewDidLoad() {
+        view?.showMoviesData(moviesResult)
+    }
     
     func searchMovies(_ title: String) {
         interactor?.searchMovies(page: String(index), title: title)
@@ -32,18 +34,21 @@ final class MoviesPresenter: MoviesPresentation {
         return poster
     }
     
-    func didSelectSearchView() {}
-    
-    func didSelectMovie(_ imdbId: String) {}
+    func didSelect(movie index: IndexPath) {
+        guard let imdbId = moviesResult?.search?[index.item].imdbID else { return }
+        router?.presentDetails(movie: imdbId)
+    }
 }
 
 extension MoviesPresenter: MoviesInteractorOutput {
     func moviesFetched(_ movies: OMDBResult) {
         self.moviesResult = movies
-        view?.showMoviesData()
+        view?.showMoviesData(movies)
     }
     
     func moviesFetchFailed() {
+        self.moviesResult = nil
+        view?.showMoviesData(moviesResult)
         view?.showErrorMessage()
     }
 }

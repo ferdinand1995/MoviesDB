@@ -159,23 +159,16 @@ class MoviesVC: UIViewController {
         cancelButtonTapped(self.cancelButton)
     }
 
-    func registerForKeyboardNotifications() {
+    private func registerForKeyboardNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardShown(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector:
-                #selector(keyboardHidden(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
 
-    @objc func keyboardShown(_ notificiation: NSNotification) {
-//        self.add(recentSearchVC, frame: self.collectionView.frame)
-//        recentSearchVC.delegate = self
+    @objc private func keyboardShown(_ notificiation: NSNotification) {
         collectionView.setContentOffset(CGPoint.zero, animated: false)
-    }
-
-    @objc func keyboardHidden(_ notification: NSNotification) {
-//        recentSearchVC.remove()
     }
 }
 
+// MARK: Action
 extension MoviesVC: MoviesView {
     
     func showErrorMessage() {
@@ -184,7 +177,12 @@ extension MoviesVC: MoviesView {
         self.present(alertController, animated: true)
     }
     
-    func showMoviesData() {
-        self.collectionView.reloadData()
+    func showMoviesData(_ movies: OMDBResult?) {
+        if let searchResult = movies?.search?.count, searchResult > 0 {
+            collectionView.backgroundView = nil
+        } else {
+            collectionView.backgroundView = EmptyView(frame: collectionView.frame)
+        }
+        collectionView.reloadData()
     }
 }

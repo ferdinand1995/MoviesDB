@@ -11,7 +11,7 @@ protocol MoviesView: AnyObject {
     var presenter: MoviesPresentation? { get set }
         
     func showErrorMessage()
-    func showMoviesData()
+    func showMoviesData(_ movies: OMDBResult?)
 }
 
 protocol MoviesPresentation: AnyObject {
@@ -23,8 +23,7 @@ protocol MoviesPresentation: AnyObject {
     func countMovies() -> Int
     func getPoster(movie index: IndexPath) -> String
     func searchMovies(_ title: String)
-    func didSelectSearchView()
-    func didSelectMovie(_ imdbId: String)
+    func didSelect(movie index: IndexPath)
 }
 
 protocol MoviesUseCase: AnyObject {
@@ -41,6 +40,6 @@ protocol MoviesInteractorOutput: AnyObject {
 protocol MoviesWireframe: AnyObject {
     var viewController: UIViewController? { get set }
         
-    func presentDetails(forMovie movie: OMDBResult)
+    func presentDetails(movie imdbId: String)
     static func assembleModule() -> UIViewController
 }

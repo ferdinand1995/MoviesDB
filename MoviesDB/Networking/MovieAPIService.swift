@@ -9,6 +9,7 @@ import Moya
 
 enum MovieAPIService {
     case searchMovies(page: String, title: String)
+    case getMovie(id: String)
 }
 
 extension MovieAPIService: TargetType {
@@ -31,10 +32,7 @@ extension MovieAPIService: TargetType {
     }
 
     var path: String {
-        switch self {
-        case .searchMovies(_, _):
-            return "/"
-        }
+        return "/"
     }
 
     var method: Method {
@@ -43,6 +41,11 @@ extension MovieAPIService: TargetType {
 
     var task: Task {
         switch self {
+        case let .getMovie(id):
+            return .requestParameters(parameters: [
+                "apikey": apiKey,
+                "i": id
+            ], encoding: URLEncoding.queryString)
         case let .searchMovies(page, title):
             return .requestParameters(parameters: [
                 "apikey": apiKey,
