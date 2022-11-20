@@ -18,7 +18,7 @@ final class MoviesRouter: MoviesWireframe {
         let interactor = MoviesInteractor()
         
         let navigation = UINavigationController(rootViewController: view)
-        navigation.setNavigationBarHidden(true, animated: false)
+        navigation.navigationBar.isHidden = true
         
         view.presenter = presenter
         

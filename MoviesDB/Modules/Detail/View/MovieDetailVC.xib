@@ -7,6 +7,17 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Nunito-Bold.ttf">
+            <string>Nunito-Bold</string>
+        </array>
+        <array key="Nunito-Regular.ttf">
+            <string>Nunito-Regular</string>
+        </array>
+        <array key="Nunito-SemiBold.ttf">
+            <string>Nunito-SemiBold</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MovieDetailVC" customModule="MoviesDB" customModuleProvider="target">
             <connections>
@@ -14,7 +25,7 @@
                 <outlet property="backgroundContentView" destination="jBq-vm-uH5" id="uMF-6Z-72S"/>
                 <outlet property="movieBannerImageView" destination="py1-2a-riz" id="XPz-Eo-P2G"/>
                 <outlet property="movieDescription" destination="dZj-AV-CXA" id="0NR-c0-Kvd"/>
-                <outlet property="movieRating" destination="fnz-R6-vcN" id="1Pf-na-jSk"/>
+                <outlet property="movieGenre" destination="fnz-R6-vcN" id="1Pf-na-jSk"/>
                 <outlet property="movieReleaseDate" destination="RQO-HN-Gsn" id="SU8-Vz-jhX"/>
                 <outlet property="movieTitle" destination="dIe-dl-1sU" id="xhG-FU-fan"/>
                 <outlet property="underlineView" destination="k2u-Tr-ESW" id="6NQ-jQ-l45"/>
@@ -30,8 +41,14 @@
                     <rect key="frame" x="0.0" y="48" width="414" height="814"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jBq-vm-uH5">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="561.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="608.5"/>
                             <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="py1-2a-riz">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="310.5"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="py1-2a-riz" secondAttribute="height" multiplier="4:3" id="9fC-sv-gTX"/>
+                                    </constraints>
+                                </imageView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rT0-7p-EBs">
                                     <rect key="frame" x="16" y="8" width="44" height="44"/>
                                     <constraints>
@@ -41,49 +58,43 @@
                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                     <state key="normal" image="ic_back"/>
                                 </button>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="py1-2a-riz">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="310.5"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" secondItem="py1-2a-riz" secondAttribute="height" multiplier="4:3" id="9fC-sv-gTX"/>
-                                    </constraints>
-                                </imageView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="iNn-0G-r5q">
-                                    <rect key="frame" x="16" y="326.5" width="382" height="219"/>
+                                    <rect key="frame" x="16" y="326.5" width="382" height="266"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="STo-ux-bn3">
-                                            <rect key="frame" x="0.0" y="0.0" width="382" height="69.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="382" height="88"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Title " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dIe-dl-1sU">
-                                                    <rect key="frame" x="141.5" y="0.0" width="99" height="21.5"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                                    <rect key="frame" x="125" y="0.0" width="132" height="33"/>
+                                                    <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="24"/>
                                                     <color key="textColor" red="0.84458280460000001" green="0.84458280460000001" blue="0.84458280460000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Release Date: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RQO-HN-Gsn">
-                                                    <rect key="frame" x="147.5" y="29.5" width="87" height="16"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <rect key="frame" x="145" y="41" width="92" height="19.5"/>
+                                                    <fontDescription key="fontDescription" name="Nunito-SemiBold" family="Nunito" pointSize="14"/>
                                                     <color key="textColor" red="0.84458280460000001" green="0.84458280460000001" blue="0.84458280460000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fnz-R6-vcN">
-                                                    <rect key="frame" x="168" y="53.5" width="46.5" height="16"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <rect key="frame" x="166.5" y="68.5" width="49" height="19.5"/>
+                                                    <fontDescription key="fontDescription" name="Nunito-SemiBold" family="Nunito" pointSize="14"/>
                                                     <color key="textColor" red="0.84458280460000001" green="0.84458280460000001" blue="0.84458280460000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </stackView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k2u-Tr-ESW">
-                                            <rect key="frame" x="0.0" y="81.5" width="382" height="1"/>
+                                            <rect key="frame" x="0.0" y="100" width="382" height="1"/>
                                             <color key="backgroundColor" white="0.66666666669999997" alpha="0.28215779050000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="h8X-f4-8dC"/>
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dZj-AV-CXA">
-                                            <rect key="frame" x="0.0" y="94.5" width="382" height="124.5"/>
+                                            <rect key="frame" x="0.0" y="113" width="382" height="153"/>
                                             <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
-                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="14"/>
                                             <color key="textColor" red="0.84458280460000001" green="0.84458280460000001" blue="0.84458280460000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>

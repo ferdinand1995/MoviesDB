@@ -10,7 +10,7 @@ import UIKit
 protocol MovieDetailView: AnyObject {
     var presenter: MovieDetailPresentation? { get set }
         
-    func showErrorMessage()
+    func showError(_ message: String)
     func showMovieDetail(_ movies: OMDBResult?)
 }
 
@@ -20,21 +20,23 @@ protocol MovieDetailPresentation: AnyObject {
     var router: MovieDetailWireframe? { get set }
     
     func viewDidLoad()
+    func popToListPage()
 }
 
 protocol MovieDetailUseCase: AnyObject {
     var output: MovieDetailInteractorOutput? { get set }
        
-    func fetchMovieDetail(imdbId: String)
+    func fetchMovieDetail(_ imdbId: String)
 }
 
 protocol MovieDetailInteractorOutput: AnyObject {
     func moviesFetched(_ movies: OMDBResult)
-    func moviesFetchFailed()
+    func showError(message: String)
 }
 
 protocol MovieDetailWireframe: AnyObject {
     var viewController: UIViewController? { get set }
 
     static func assembleModule(_ imdbId: String) -> UIViewController
+    func popToListPage()
 }

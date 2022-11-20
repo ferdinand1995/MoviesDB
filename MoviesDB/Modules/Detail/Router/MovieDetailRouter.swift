@@ -14,22 +14,23 @@ final class MovieDetailRouter: MovieDetailWireframe {
     static func assembleModule(_ imdbId: String) -> UIViewController {
         let view = MovieDetailVC()
         let router = MovieDetailRouter()
-//        let presenter = MovieDetailPresenter()
-//        let interactor = MoviesInteractor()
+        let presenter = MovieDetailPresenter(imdbId)
+        let interactor = MovieDetailInteractor()
         
-        let navigation = UINavigationController(rootViewController: view)
-        navigation.setNavigationBarHidden(true, animated: false)
+        view.presenter = presenter
         
-//        view.presenter = presenter
+        presenter.view = view
+        presenter.interactor = interactor
+        presenter.router = router
         
-//        presenter.view = view
-//        presenter.interactor = interactor
-//        presenter.router = router
-        
-//        interactor.output = presenter
+        interactor.output = presenter
         
         router.viewController = view
         
-        return navigation
+        return view
+    }
+    
+    func popToListPage() {
+        viewController?.navigationController?.popViewController(animated: true)
     }
 }

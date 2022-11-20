@@ -85,7 +85,6 @@ class MoviesVC: UIViewController {
     // MARK: Initialize
     private func initView() {
         view.backgroundColor = .brokenWhiteDarkMode
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
         view.addSubview(titleLabel)
         searchView.layer.cornerRadius = 8
         searchView.layer.masksToBounds = true

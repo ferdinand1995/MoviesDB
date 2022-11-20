@@ -42,6 +42,7 @@
 		B1797AAD29291BB70023840E /* MovieDetailContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1797AA429291BB70023840E /* MovieDetailContract.swift */; };
 		B1797AB629291E8E0023840E /* MovieDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1797AB329291E8D0023840E /* MovieDetailInteractor.swift */; };
 		B1797AB729291E8E0023840E /* MovieDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1797AB529291E8D0023840E /* MovieDetailPresenter.swift */; };
+		B187B75A292A0168004B6850 /* UIView+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = B187B759292A0168004B6850 /* UIView+Utility.swift */; };
 		B1B1A7CB2928E793005DEBA5 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B1B1A7C82928E793005DEBA5 /* Nunito-Regular.ttf */; };
 		B1B1A7CC2928E793005DEBA5 /* Nunito-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B1B1A7C92928E793005DEBA5 /* Nunito-SemiBold.ttf */; };
 		B1B1A7CD2928E793005DEBA5 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B1B1A7CA2928E793005DEBA5 /* Nunito-Bold.ttf */; };
@@ -118,6 +119,7 @@
 		B1797AA429291BB70023840E /* MovieDetailContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetailContract.swift; sourceTree = "<group>"; };
 		B1797AB329291E8D0023840E /* MovieDetailInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetailInteractor.swift; sourceTree = "<group>"; };
 		B1797AB529291E8D0023840E /* MovieDetailPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetailPresenter.swift; sourceTree = "<group>"; };
+		B187B759292A0168004B6850 /* UIView+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Utility.swift"; sourceTree = "<group>"; };
 		B1B1A7C82928E793005DEBA5 /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
 		B1B1A7C92928E793005DEBA5 /* Nunito-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-SemiBold.ttf"; sourceTree = "<group>"; };
 		B1B1A7CA2928E793005DEBA5 /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
@@ -313,6 +315,7 @@
 				B15F51A029277B3C006C48AF /* UIWindow+Utility.swift */,
 				B1797A942929071D0023840E /* EmptyView.swift */,
 				B1797A9F292919E00023840E /* UIImage+Utility.swift */,
+				B187B759292A0168004B6850 /* UIView+Utility.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -718,6 +721,7 @@
 				B1797A992929135B0023840E /* MovieDetailVC.swift in Sources */,
 				B1797AAD29291BB70023840E /* MovieDetailContract.swift in Sources */,
 				B15F519929275BB5006C48AF /* MoviesContract.swift in Sources */,
+				B187B75A292A0168004B6850 /* UIView+Utility.swift in Sources */,
 				B15F51AA29277B3D006C48AF /* UIAlertController+Utility.swift in Sources */,
 				B15F5191292758E0006C48AF /* RootRouter.swift in Sources */,
 				B15F51BA29277F48006C48AF /* MovieAPIService.swift in Sources */,

@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - OMDBResult
 struct OMDBResult: Codable {
-    let search: [Search]?
+    var search: [Search]?
     let response, error, totalResults: String?
     let title, year, rated, released: String?
     let runtime, genre, director, writer: String?

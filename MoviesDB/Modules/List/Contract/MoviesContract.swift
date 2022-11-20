@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol MoviesView: AnyObject {
+protocol MoviesView: LoadingIndicator {
     var presenter: MoviesPresentation? { get set }
         
     func showErrorMessage()
@@ -21,6 +21,8 @@ protocol MoviesPresentation: AnyObject {
     
     func viewDidLoad()
     func countMovies() -> Int
+    func paginateList()
+    func validatePagination(index: IndexPath)
     func getPoster(movie index: IndexPath) -> String
     func searchMovies(_ title: String)
     func didSelect(movie index: IndexPath)

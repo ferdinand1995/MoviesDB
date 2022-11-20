@@ -14,21 +14,28 @@ final class MovieDetailPresenter: MovieDetailPresentation {
     var router: MovieDetailWireframe?
     
     private var moviesResult: OMDBResult?
+    private let imdbId: String
+    init(_ imdbId: String) {
+        self.imdbId = imdbId
+    }
     
     func viewDidLoad() {
-        view?.showMovieDetail(moviesResult)
+        interactor?.fetchMovieDetail(imdbId)
+    }
+    
+    func popToListPage() {
+        router?.popToListPage()
     }
 }
 
 extension MovieDetailPresenter: MovieDetailInteractorOutput {
+    
     func moviesFetched(_ movies: OMDBResult) {
         self.moviesResult = movies
         view?.showMovieDetail(movies)
     }
     
-    func moviesFetchFailed() {
-        self.moviesResult = nil
-        view?.showMovieDetail(moviesResult)
-        view?.showErrorMessage()
+    func showError(message: String) {
+        view?.showError(message)
     }
 }

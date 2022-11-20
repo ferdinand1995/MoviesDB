@@ -56,8 +56,6 @@ class EmptyView: UIView {
     // MARK: Layout
     private func initLayout() {
         wrapperView.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(32)
-            make.trailing.equalToSuperview().offset(-32)
             make.center.equalToSuperview()
         }
         

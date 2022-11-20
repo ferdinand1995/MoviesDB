@@ -7,33 +7,33 @@
 
 import Foundation
 
-final class MovieDetailInteractor: MoviesUseCase {
-    
+final class MovieDetailInteractor: MovieDetailUseCase {
+
     weak var output: MovieDetailInteractorOutput?
     private let networkManager: NetworkManager
 
     init() {
         self.networkManager = NetworkManager()
     }
-    
-    func searchMovies(page: String, title: String) {
-        networkManager.fetchSearchMovies(page: page, title: title) { [weak self] result in
+
+    func fetchMovieDetail(_ imdbId: String) {
+        networkManager.fetchMovie(by: imdbId) { [weak self] result in
             guard let strongSelf = self else { return }
             switch result {
             case .success(let response):
                 guard let responseMessage = response.response else {
-                    strongSelf.output?.moviesFetchFailed()
+                    strongSelf.output?.showError(message: "Something when wrong!")
                     return
                 }
                 if responseMessage.lowercased().contains("false") {
-                    strongSelf.output?.moviesFetchFailed()
+                    strongSelf.output?.showError(message: response.error ?? "Something when wrong!")
                 } else {
                     strongSelf.output?.moviesFetched(response)
                 }
-            case .failure(_):
-                strongSelf.output?.moviesFetchFailed()
+            case .failure(let error):
+                strongSelf.output?.showError(message: error.localizedDescription)
             }
         }
     }
-    
+
 }
