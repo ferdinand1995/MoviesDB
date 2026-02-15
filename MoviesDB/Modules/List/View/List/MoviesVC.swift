@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SnapKit
 
 class MoviesVC: UIViewController {
 
@@ -110,35 +109,35 @@ class MoviesVC: UIViewController {
 
     private func initLayout() {
 
-        titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(16)
-            make.leading.equalToSuperview().offset(16)
-        }
-
-        stackView.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(8)
-            make.leading.equalToSuperview().offset(16)
-            make.trailing.equalToSuperview().offset(-16)
-            make.height.equalTo(56)
-        }
-
-        searchImageView.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(8)
-            make.centerY.equalToSuperview()
-            make.width.equalTo(24)
-        }
-
-        searchTextField.snp.makeConstraints { make in
-            make.leading.equalTo(searchImageView.snp.trailing).offset(8)
-            make.top.equalToSuperview().offset(16)
-            make.bottom.equalToSuperview().offset(-16)
-            make.trailing.equalToSuperview()
-        }
-
-        collectionView.snp.makeConstraints { make in
-            make.top.equalTo(stackView.snp.bottom).offset(8)
-            make.bottom.trailing.leading.equalToSuperview()
-        }
+//        titleLabel.snp.makeConstraints { make in
+//            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(16)
+//            make.leading.equalToSuperview().offset(16)
+//        }
+//
+//        stackView.snp.makeConstraints { make in
+//            make.top.equalTo(titleLabel.snp.bottom).offset(8)
+//            make.leading.equalToSuperview().offset(16)
+//            make.trailing.equalToSuperview().offset(-16)
+//            make.height.equalTo(56)
+//        }
+//
+//        searchImageView.snp.makeConstraints { make in
+//            make.leading.equalToSuperview().offset(8)
+//            make.centerY.equalToSuperview()
+//            make.width.equalTo(24)
+//        }
+//
+//        searchTextField.snp.makeConstraints { make in
+//            make.leading.equalTo(searchImageView.snp.trailing).offset(8)
+//            make.top.equalToSuperview().offset(16)
+//            make.bottom.equalToSuperview().offset(-16)
+//            make.trailing.equalToSuperview()
+//        }
+//
+//        collectionView.snp.makeConstraints { make in
+//            make.top.equalTo(stackView.snp.bottom).offset(8)
+//            make.bottom.trailing.leading.equalToSuperview()
+//        }
     }
 
     // MARK: Action
@@ -168,7 +167,7 @@ class MoviesVC: UIViewController {
 }
 
 // MARK: Action
-extension MoviesVC: MoviesView {
+extension MoviesVC: @MainActor MoviesView {
     
     func showErrorMessage() {
         let errorTitle: String = "Error"

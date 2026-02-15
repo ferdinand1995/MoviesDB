@@ -5,6 +5,7 @@
 //  Created by Ferdinand on 18/11/22.
 //
 
+import Foundation
 import Moya
 
 enum NetworkClientError: Error {

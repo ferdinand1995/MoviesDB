@@ -7,7 +7,6 @@
 
 import Foundation
 import SDWebImage
-import SnapKit
 
 class MovieContentCell: UICollectionViewCell {
 
@@ -46,13 +45,13 @@ class MovieContentCell: UICollectionViewCell {
         containerView.addSubview(contentImageView)
         contentView.addSubview(containerView)
 
-        containerView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
+//        containerView.snp.makeConstraints { make in
+//            make.edges.equalToSuperview()
+//        }
 
-        contentImageView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
+//        contentImageView.snp.makeConstraints { make in
+//            make.edges.equalToSuperview()
+//        }
     }
 
     // MARK: Public Interface

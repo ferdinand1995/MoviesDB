@@ -53,7 +53,7 @@ extension MoviesVC: UICollectionViewDelegate {
 
 // MARK: Dynamic Height CollectionView
 extension MoviesVC: PinterestLayoutDelegate {
-    func collectionView(collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath: IndexPath) -> CGFloat {
+    nonisolated func collectionView(collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath: IndexPath) -> CGFloat {
         return CGFloat(300)
     }
 }

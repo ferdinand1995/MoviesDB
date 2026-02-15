@@ -11,9 +11,9 @@ protocol RootWireframe: AnyObject {
     func presentMainScreen(in window: UIWindow)
 }
 
-final class RootRouter: RootWireframe {
+final class RootRouter: @MainActor RootWireframe {
     
-    func presentMainScreen(in window: UIWindow) {
+    @MainActor func presentMainScreen(in window: UIWindow) {
         window.makeKeyAndVisible()
         window.rootViewController = MoviesRouter.assembleModule()
     }

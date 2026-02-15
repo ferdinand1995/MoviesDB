@@ -49,15 +49,15 @@ class MovieDetailVC: UIViewController {
     }
 }
 
-extension MovieDetailVC: MovieDetailView {
+extension MovieDetailVC: @MainActor MovieDetailView {
     
-    func showError(_ message: String) {
+    @MainActor func showError(_ message: String) {
         let errorTitle: String = message.lowercased().contains("Incorrect IMDb ID") ? "Warning": "Error"
         let alertController = UIAlertController(title: errorTitle, message: message)
         self.present(alertController, animated: true)
     }
     
-    func showMovieDetail(_ movies: OMDBResult?) {
+    @MainActor func showMovieDetail(_ movies: OMDBResult?) {
         movieTitle.text = movies?.title
         movieGenre.text = movies?.genre
         movieReleaseDate.text = movies?.released

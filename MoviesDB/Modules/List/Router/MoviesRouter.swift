@@ -7,11 +7,11 @@
 
 import UIKit
 
-final class MoviesRouter: MoviesWireframe {
+final class MoviesRouter: @MainActor MoviesWireframe {
 
     weak var viewController: UIViewController?
     
-    static func assembleModule() -> UIViewController {
+    @MainActor static func assembleModule() -> UIViewController {
         let view = MoviesVC()
         let router = MoviesRouter()
         let presenter = MoviesPresenter()
@@ -33,7 +33,7 @@ final class MoviesRouter: MoviesWireframe {
         return navigation
     }
     
-    func presentDetails(movie imdbId: String) {
+    @MainActor func presentDetails(movie imdbId: String) {
         let detailsModuleViewController = MovieDetailRouter.assembleModule(imdbId)
         viewController?.navigationController?.pushViewController(detailsModuleViewController, animated: true)
     }

@@ -15,11 +15,11 @@ protocol LoadingIndicator: AnyObject {
 extension LoadingIndicator where Self: UIViewController {
     
     func showActivityIndicator() {
-        self.view.makeToastActivity(.center)
+//        self.view.makeToastActivity(.center)
     }
     
     func hideActivityIndicator() {
-        self.view.hideToastActivity()
+//        self.view.hideToastActivity()
     }
 }
 

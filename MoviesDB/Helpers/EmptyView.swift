@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SnapKit
 
 class EmptyView: UIView {
     
@@ -55,20 +54,20 @@ class EmptyView: UIView {
 
     // MARK: Layout
     private func initLayout() {
-        wrapperView.snp.makeConstraints { make in
-            make.center.equalToSuperview()
-        }
-        
-        emptyImageView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(16)
-            make.centerX.equalToSuperview()
-            make.width.height.equalTo(40)
-        }
-        
-        titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(emptyImageView.snp.bottom).offset(16)
-            make.leading.equalToSuperview().offset(16)
-            make.trailing.equalToSuperview().offset(-16)
-        }
+//        wrapperView.snp.makeConstraints { make in
+//            make.center.equalToSuperview()
+//        }
+//        
+//        emptyImageView.snp.makeConstraints { make in
+//            make.top.equalToSuperview().offset(16)
+//            make.centerX.equalToSuperview()
+//            make.width.height.equalTo(40)
+//        }
+//        
+//        titleLabel.snp.makeConstraints { make in
+//            make.top.equalTo(emptyImageView.snp.bottom).offset(16)
+//            make.leading.equalToSuperview().offset(16)
+//            make.trailing.equalToSuperview().offset(-16)
+//        }
     }
 }

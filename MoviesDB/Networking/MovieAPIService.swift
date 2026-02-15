@@ -5,6 +5,7 @@
 //  Created by Ferdinand on 18/11/22.
 //
 
+import Foundation
 import Moya
 
 enum MovieAPIService {
@@ -35,7 +36,7 @@ extension MovieAPIService: TargetType {
         return "/"
     }
 
-    var method: Method {
+    var method: Moya.Method {
         return .get
     }
 

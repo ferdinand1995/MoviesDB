@@ -7,11 +7,11 @@
 
 import UIKit
 
-final class MovieDetailRouter: MovieDetailWireframe {
+final class MovieDetailRouter: @MainActor MovieDetailWireframe {
 
     weak var viewController: UIViewController?
     
-    static func assembleModule(_ imdbId: String) -> UIViewController {
+    @MainActor static func assembleModule(_ imdbId: String) -> UIViewController {
         let view = MovieDetailVC()
         let router = MovieDetailRouter()
         let presenter = MovieDetailPresenter(imdbId)
@@ -19,7 +19,7 @@ final class MovieDetailRouter: MovieDetailWireframe {
         
         view.presenter = presenter
         
-        presenter.view = view
+//        presenter.view = view
         presenter.interactor = interactor
         presenter.router = router
         
@@ -30,7 +30,7 @@ final class MovieDetailRouter: MovieDetailWireframe {
         return view
     }
     
-    func popToListPage() {
+    @MainActor func popToListPage() {
         viewController?.navigationController?.popViewController(animated: true)
     }
 }
