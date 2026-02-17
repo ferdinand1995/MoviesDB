@@ -7,15 +7,15 @@
 
 import UIKit
 
-protocol MoviesView: LoadingIndicator {
-    var presenter: MoviesPresentation? { get set }
-        
-    func showErrorMessage()
-    func showMoviesData(_ movies: OMDBResult?)
-}
+//protocol MoviesView: LoadingIndicator {
+//    var presenter: MoviesPresentation? { get set }
+//        
+//    func showErrorMessage()
+//    func showMoviesData(_ movies: OMDBResult?)
+//}
 
 protocol MoviesPresentation: AnyObject {
-    var view: MoviesView? { get set }
+//    var view: MoviesView? { get set }
     var interactor: MoviesUseCase? { get set }
     var router: MoviesWireframe? { get set }
     

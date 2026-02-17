@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class MoviesVC: UIViewController {
 
@@ -18,7 +19,9 @@ class MoviesVC: UIViewController {
         collectionView.backgroundColor = UIColor.white
         return collectionView
     }()
-
+    
+    private(set) lazy var hostingController: UIHostingController = UIHostingController(rootView: MainView())
+    
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 32)
@@ -83,61 +86,41 @@ class MoviesVC: UIViewController {
 
     // MARK: Initialize
     private func initView() {
-        view.backgroundColor = .brokenWhiteDarkMode
-        view.addSubview(titleLabel)
-        searchView.layer.cornerRadius = 8
-        searchView.layer.masksToBounds = true
-        searchView.layer.borderWidth = 0.6
-        searchView.layer.borderColor = UIColor.softBlackDarkMode.cgColor
-        searchView.addSubview(searchImageView)
-        searchTextField.returnKeyType = UIReturnKeyType.search
-        searchTextField.delegate = self
-        searchView.addSubview(searchTextField)
-        cancelButton.isHidden = true
-        cancelButton.addTarget(self, action: #selector(cancelButtonTapped(_:)), for: .touchUpInside)
-        [searchView, cancelButton].forEach { stackView.addArrangedSubview($0) }
-        view.addSubview(stackView)
-        if let layout = collectionView.collectionViewLayout as? PinterestLayout {
-            layout.delegate = self
-        }
-        collectionView.backgroundColor = .brokenWhiteDarkMode
-        collectionView.register(cellWithClass: MovieContentCell.self)
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        view.addSubview(collectionView)
+//        view.backgroundColor = .brokenWhiteDarkMode
+//        view.addSubview(titleLabel)
+//        searchView.layer.cornerRadius = 8
+//        searchView.layer.masksToBounds = true
+//        searchView.layer.borderWidth = 0.6
+//        searchView.layer.borderColor = UIColor.softBlackDarkMode.cgColor
+//        searchView.addSubview(searchImageView)
+//        searchTextField.returnKeyType = UIReturnKeyType.search
+//        searchTextField.delegate = self
+//        searchView.addSubview(searchTextField)
+//        cancelButton.isHidden = true
+//        cancelButton.addTarget(self, action: #selector(cancelButtonTapped(_:)), for: .touchUpInside)
+//        [searchView, cancelButton].forEach { stackView.addArrangedSubview($0) }
+//        view.addSubview(stackView)
+//        if let layout = collectionView.collectionViewLayout as? PinterestLayout {
+//            layout.delegate = self
+//        }
+//        collectionView.backgroundColor = .brokenWhiteDarkMode
+//        collectionView.register(cellWithClass: MovieContentCell.self)
+//        collectionView.dataSource = self
+//        collectionView.delegate = self
+//        view.addSubview(collectionView)
+        addChild(hostingController)
+        hostingController.view.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(hostingController.view)
+        hostingController.didMove(toParent: self)
     }
 
     private func initLayout() {
-
-//        titleLabel.snp.makeConstraints { make in
-//            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(16)
-//            make.leading.equalToSuperview().offset(16)
-//        }
-//
-//        stackView.snp.makeConstraints { make in
-//            make.top.equalTo(titleLabel.snp.bottom).offset(8)
-//            make.leading.equalToSuperview().offset(16)
-//            make.trailing.equalToSuperview().offset(-16)
-//            make.height.equalTo(56)
-//        }
-//
-//        searchImageView.snp.makeConstraints { make in
-//            make.leading.equalToSuperview().offset(8)
-//            make.centerY.equalToSuperview()
-//            make.width.equalTo(24)
-//        }
-//
-//        searchTextField.snp.makeConstraints { make in
-//            make.leading.equalTo(searchImageView.snp.trailing).offset(8)
-//            make.top.equalToSuperview().offset(16)
-//            make.bottom.equalToSuperview().offset(-16)
-//            make.trailing.equalToSuperview()
-//        }
-//
-//        collectionView.snp.makeConstraints { make in
-//            make.top.equalTo(stackView.snp.bottom).offset(8)
-//            make.bottom.trailing.leading.equalToSuperview()
-//        }
+        NSLayoutConstraint.activate([
+            hostingController.view.topAnchor.constraint(equalTo: view.topAnchor),
+            hostingController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            hostingController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            hostingController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        ])
     }
 
     // MARK: Action
@@ -167,7 +150,7 @@ class MoviesVC: UIViewController {
 }
 
 // MARK: Action
-extension MoviesVC: @MainActor MoviesView {
+extension MoviesVC {
     
     func showErrorMessage() {
         let errorTitle: String = "Error"

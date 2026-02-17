@@ -15,6 +15,13 @@ final class RootRouter: @MainActor RootWireframe {
     
     @MainActor func presentMainScreen(in window: UIWindow) {
         window.makeKeyAndVisible()
-        window.rootViewController = MoviesRouter.assembleModule()
+        window.rootViewController = assembleModule()
+    }
+    
+    @MainActor func assembleModule() -> UIViewController {
+        let view = MainVC()
+        let navigation = UINavigationController(rootViewController: view)
+        navigation.navigationBar.isHidden = true
+        return navigation
     }
 }

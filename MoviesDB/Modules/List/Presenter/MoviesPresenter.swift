@@ -9,7 +9,7 @@ import Foundation
 
 final class MoviesPresenter: MoviesPresentation {
     
-    weak var view: MoviesView?
+//    weak var view: MoviesView?
     var interactor: MoviesUseCase?
     var router: MoviesWireframe?
     
@@ -19,7 +19,7 @@ final class MoviesPresenter: MoviesPresentation {
     private var title = String()
     
     func viewDidLoad() {
-        view?.showMoviesData(moviesResult)
+//        view?.showMoviesData(moviesResult)
     }
     
     func searchMovies(_ title: String) {
@@ -27,7 +27,7 @@ final class MoviesPresenter: MoviesPresentation {
             pageCount = 1
         }
         self.title = title
-        view?.showActivityIndicator()
+//        view?.showActivityIndicator()
         interactor?.searchMovies(page: String(pageCount), title: title)
     }
     
@@ -55,7 +55,7 @@ final class MoviesPresenter: MoviesPresentation {
     func paginateList() {
         guard allowedToFetchNewData else { return }
         pageCount += 1
-        view?.showActivityIndicator()
+//        view?.showActivityIndicator()
         interactor?.searchMovies(page: String(pageCount), title: title)
     }
 }
@@ -69,15 +69,15 @@ extension MoviesPresenter: MoviesInteractorOutput {
         } else {
             self.moviesResult = movies
         }
-        view?.hideActivityIndicator()
-        view?.showMoviesData(movies)
+//        view?.hideActivityIndicator()
+//        view?.showMoviesData(movies)
     }
     
     func moviesFetchFailed() {
         self.moviesResult = nil
         self.allowedToFetchNewData = false
-        view?.hideActivityIndicator()
-        view?.showMoviesData(moviesResult)
-        view?.showErrorMessage()
+//        view?.hideActivityIndicator()
+//        view?.showMoviesData(moviesResult)
+//        view?.showErrorMessage()
     }
 }
