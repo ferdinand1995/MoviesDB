@@ -19,7 +19,7 @@ final class MovieDetailRouter: @MainActor MovieDetailWireframe {
         
         view.presenter = presenter
         
-//        presenter.view = view
+        presenter.view = view
         presenter.interactor = interactor
         presenter.router = router
         

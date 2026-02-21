@@ -61,6 +61,16 @@
 		E4505AEC2F4437F400BE954D /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4505AEB2F4437F400BE954D /* MainVC.swift */; };
 		E4505AEE2F4439FA00BE954D /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4505AED2F4439FA00BE954D /* ViewRouter.swift */; };
 		E4505AF02F443BDF00BE954D /* MoviesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4505AEF2F443BDF00BE954D /* MoviesView.swift */; };
+		E4505AF22F47844B00BE954D /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4505AF12F47844A00BE954D /* Store.swift */; };
+		E4505AF42F49682F00BE954D /* MoviesState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4505AF32F49682C00BE954D /* MoviesState.swift */; };
+		E4505AF62F49693E00BE954D /* Spacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4505AF52F49693E00BE954D /* Spacing.swift */; };
+		E4505AFC2F49696100BE954D /* ProgressiveBlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4505AF72F49696100BE954D /* ProgressiveBlurView.swift */; };
+		E4505AFD2F49696100BE954D /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4505AF82F49696100BE954D /* SearchBar.swift */; };
+		E4505AFE2F49696100BE954D /* SpinnerCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4505AF92F49696100BE954D /* SpinnerCircle.swift */; };
+		E4505B012F496E4800BE954D /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = E4505B002F496E4800BE954D /* SDWebImage */; };
+		E4505B042F496E9400BE954D /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = E4505B032F496E9400BE954D /* SDWebImageSwiftUI */; };
+		E4505B062F49AF4300BE954D /* UICoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4505B052F49AF4300BE954D /* UICoordinator.swift */; };
+		E4505B082F49B9D900BE954D /* MovieDetailRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4505B072F49B9D900BE954D /* MovieDetailRepresentable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +143,14 @@
 		E4505AEB2F4437F400BE954D /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		E4505AED2F4439FA00BE954D /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
 		E4505AEF2F443BDF00BE954D /* MoviesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesView.swift; sourceTree = "<group>"; };
+		E4505AF12F47844A00BE954D /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		E4505AF32F49682C00BE954D /* MoviesState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesState.swift; sourceTree = "<group>"; };
+		E4505AF52F49693E00BE954D /* Spacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacing.swift; sourceTree = "<group>"; };
+		E4505AF72F49696100BE954D /* ProgressiveBlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressiveBlurView.swift; sourceTree = "<group>"; };
+		E4505AF82F49696100BE954D /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		E4505AF92F49696100BE954D /* SpinnerCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerCircle.swift; sourceTree = "<group>"; };
+		E4505B052F49AF4300BE954D /* UICoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICoordinator.swift; sourceTree = "<group>"; };
+		E4505B072F49B9D900BE954D /* MovieDetailRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailRepresentable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +161,8 @@
 				E4095E682F41D86500218B7D /* RxMoya in Frameworks */,
 				E4505AE62F41DB1700BE954D /* Moya in Frameworks */,
 				E4095E6B2F41D8A600218B7D /* SDWebImage in Frameworks */,
+				E4505B012F496E4800BE954D /* SDWebImage in Frameworks */,
+				E4505B042F496E9400BE954D /* SDWebImageSwiftUI in Frameworks */,
 				E4095E642F41D86500218B7D /* Moya in Frameworks */,
 				E4095E662F41D86500218B7D /* ReactiveMoya in Frameworks */,
 				E4095E622F41D86500218B7D /* CombineMoya in Frameworks */,
@@ -262,6 +282,7 @@
 		B15F519329275AB9006C48AF /* List */ = {
 			isa = PBXGroup;
 			children = (
+				E4505AF32F49682C00BE954D /* MoviesState.swift */,
 				B1B1A7D62928EBE7005DEBA5 /* Presenter */,
 				B15F519A29275CB2006C48AF /* Router */,
 				B15F519729275BA1006C48AF /* Contract */,
@@ -299,6 +320,7 @@
 		B15F519D29277A39006C48AF /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				E4505AF12F47844A00BE954D /* Store.swift */,
 				B15F519E29277A48006C48AF /* PinterestLayout.swift */,
 				B15F51A529277B3C006C48AF /* Toast.swift */,
 				B15F51A229277B3C006C48AF /* UIAlertController+Utility.swift */,
@@ -310,6 +332,11 @@
 				B1797A942929071D0023840E /* EmptyView.swift */,
 				B1797A9F292919E00023840E /* UIImage+Utility.swift */,
 				B187B759292A0168004B6850 /* UIView+Utility.swift */,
+				E4505AF52F49693E00BE954D /* Spacing.swift */,
+				E4505AF72F49696100BE954D /* ProgressiveBlurView.swift */,
+				E4505AF82F49696100BE954D /* SearchBar.swift */,
+				E4505AF92F49696100BE954D /* SpinnerCircle.swift */,
+				E4505B052F49AF4300BE954D /* UICoordinator.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -374,6 +401,7 @@
 			isa = PBXGroup;
 			children = (
 				B1797AA229291BB70023840E /* MovieDetailRouter.swift */,
+				E4505B072F49B9D900BE954D /* MovieDetailRepresentable.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -540,8 +568,9 @@
 			);
 			mainGroup = B15F514F292751BF006C48AF;
 			packageReferences = (
-				E4095E692F41D8A600218B7D /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				E4505AE42F41DB1700BE954D /* XCRemoteSwiftPackageReference "Moya" */,
+				E4505AFF2F496E4800BE954D /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				E4505B022F496E9400BE954D /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = B15F5159292751BF006C48AF /* Products */;
 			projectDirPath = "";
@@ -661,7 +690,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4505AF42F49682F00BE954D /* MoviesState.swift in Sources */,
 				E4505AEE2F4439FA00BE954D /* ViewRouter.swift in Sources */,
+				E4505AF62F49693E00BE954D /* Spacing.swift in Sources */,
+				E4505B062F49AF4300BE954D /* UICoordinator.swift in Sources */,
 				B15F51AD29277B3D006C48AF /* Toast.swift in Sources */,
 				B15F51AB29277B3D006C48AF /* UIColor+Utility.swift in Sources */,
 				B15F51B629277EAE006C48AF /* MoviesVC+UICollectionView.swift in Sources */,
@@ -672,6 +704,7 @@
 				B1797AAC29291BB70023840E /* MovieDetailRouter.swift in Sources */,
 				B1797A992929135B0023840E /* MovieDetailVC.swift in Sources */,
 				E4505AEC2F4437F400BE954D /* MainVC.swift in Sources */,
+				E4505B082F49B9D900BE954D /* MovieDetailRepresentable.swift in Sources */,
 				B1797AAD29291BB70023840E /* MovieDetailContract.swift in Sources */,
 				B15F519929275BB5006C48AF /* MoviesContract.swift in Sources */,
 				B187B75A292A0168004B6850 /* UIView+Utility.swift in Sources */,
@@ -691,9 +724,13 @@
 				B1797AB729291E8E0023840E /* MovieDetailPresenter.swift in Sources */,
 				B15F51B429277E53006C48AF /* MovieContentCell.swift in Sources */,
 				B15F51A829277B3D006C48AF /* UIWindow+Utility.swift in Sources */,
+				E4505AF22F47844B00BE954D /* Store.swift in Sources */,
 				E4505AEA2F4435D700BE954D /* MainView.swift in Sources */,
 				B15F515E292751BF006C48AF /* SceneDelegate.swift in Sources */,
 				B15F51AF29277B3D006C48AF /* UIViewController+Utility.swift in Sources */,
+				E4505AFC2F49696100BE954D /* ProgressiveBlurView.swift in Sources */,
+				E4505AFD2F49696100BE954D /* SearchBar.swift in Sources */,
+				E4505AFE2F49696100BE954D /* SpinnerCircle.swift in Sources */,
 				B1B1A7D82928EBFB005DEBA5 /* MoviesPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1059,6 +1096,22 @@
 				minimumVersion = 15.0.3;
 			};
 		};
+		E4505AFF2F496E4800BE954D /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.21.6;
+			};
+		};
+		E4505B022F496E9400BE954D /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.4;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1091,6 +1144,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E4505AE42F41DB1700BE954D /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = Moya;
+		};
+		E4505B002F496E4800BE954D /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E4505AFF2F496E4800BE954D /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		E4505B032F496E9400BE954D /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E4505B022F496E9400BE954D /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

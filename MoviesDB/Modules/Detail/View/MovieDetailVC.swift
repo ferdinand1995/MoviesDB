@@ -11,7 +11,6 @@ import SDWebImage
 class MovieDetailVC: UIViewController {
 
     /// Outlets
-    @IBOutlet private weak var backButton: UIButton!
     @IBOutlet private weak var backgroundContentView: UIView!
     @IBOutlet private weak var movieBannerImageView: UIImageView!
     @IBOutlet private weak var movieTitle: UILabel!
@@ -40,12 +39,6 @@ class MovieDetailVC: UIViewController {
         self.movieDescription.text = nil
         self.movieDescription.textColor = UIColor.softBlackDarkMode
         self.underlineView.backgroundColor = UIColor.darkGrayDarkMode
-        self.backButton.setImage(UIImage(named: "ic_back")?.withColor(UIColor.softBlackDarkMode), for: .normal)
-        self.backButton.addTarget(self, action: #selector(backButtonTapped(_:)), for: .touchUpInside)
-    }
-    
-    @objc private func backButtonTapped(_ sender: UIButton) {
-        presenter?.popToListPage()
     }
 }
 

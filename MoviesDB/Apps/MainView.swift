@@ -13,7 +13,7 @@ struct MainView: View {
     var body: some View {
         NavigationStack(path: $router.path) {
             // Root view
-            buildView(for: .home)
+            buildView(for: .search)
                 .navigationDestination(for: AppRoute.self) { route in
                     buildView(for: route)
                 }
@@ -32,14 +32,10 @@ struct MainView: View {
     @ViewBuilder
     private func buildView(for route: AppRoute) -> some View {
         switch route {
-        case .home:
-            HomeView()
-        case .profile(let userId):
-            ProfileView(userId: userId)
-        case .settings:
-            SettingsView()
+        case .search:
+            MoviesView()
         case .detail(let id):
-            DetailView(id: id)
+            MovieDetailRepresentable(id)
         }
     }
 }
