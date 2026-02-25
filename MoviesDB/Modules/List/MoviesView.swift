@@ -5,65 +5,81 @@
 //  Created by Ferdinand Tedjakusuma on 17/02/26.
 //
 
-import SwiftUI
 import SDWebImage
 import SDWebImageSwiftUI
+import SwiftUI
 
 struct MoviesView: View {
     @EnvironmentObject var router: ViewRouter
 
-    @State private var textInput: String = ""
-    @State private var progress: CGFloat = 0
-    @State private var isFocused: Bool = false
-
-    @State private var state: MoviesState
-
-    var coordinator = UICoordinator()
-    
-    init() {
-        state = MoviesState()
-    }
+    @State private var store = MVIObject(
+        initialState: MoviesState(),
+        reducer: MoviesReducer()
+    )
 
     var body: some View {
         GeometryReader { geometry in
             ZStack {
                 profileOptions(geometry)
             }.toolbar(.hidden, for: .navigationBar)
+        }.onAppear {
+            store.intent(.onAppear)
         }
     }
 
     private func profileOptions(_ geometry: GeometryProxy) -> some View {
         ScrollView(.vertical) {
             VStack(spacing: .Spacing.xxxSmall) {
-                /// Grid Image View
-                LazyVGrid(columns: Array(repeating: GridItem(spacing: 8), count: 2), spacing: 8) {
-                    ForEach(state.movies, id: \.id) { item in
-                        movieCardView(item)
+                if store.state.isFocused {
+                    VStack(spacing: .Spacing.xxSmall) {
+                        HStack {
+                            Text("Recently Searched")
+                                .font(.title3)
+                            Spacer()
+                            Button {
+                                store.intent(.clearRecentSearch)
+                            } label: {
+                                Text("Clear")
+                            }
+                        }
+                        Divider()
+                        LazyVStack(alignment: .leading, spacing: .Spacing.xxSmall) {
+                            ForEach(store.state.listItem.recentSearch, id: \.id) { item in
+                                MovieRecentItem(itemName: item.item)
+                            }
+                        }
+                    }
+                    .onEmpty(for: store.state.listItem.recentSearch.isEmpty) {
+                        ContentUnavailableView.search
+                    }
+                } else {
+                    LazyVGrid(columns: Array(repeating: GridItem(spacing: 8), count: 2), spacing: 8) {
+                        ForEach(store.state.movies, id: \.id) { item in
+                            movieCardView(item)
+                        }
                     }
                 }
             }
             .padding(.Spacing.small)
-            .offset(y: isFocused ? 0 : (progress * 72))
+            .offset(y: store.state.isFocused ? 0 : (store.state.progress * 72))
             .padding(.bottom, 72)
             .safeAreaInset(edge: .top, spacing: 0) {
                 resizeableHeader()
             }
-            .background(ScrollViewExtractor(result: {
-                coordinator.scrollView = $0
-            }))
         }
         .scrollTargetBehavior(CustomScrollTarget())
-        .animation(.snappy(duration: 0.3, extraBounce: 0), value: isFocused)
+        .animation(.snappy(duration: 0.3, extraBounce: 0), value: store.state.isFocused)
         .onScrollGeometryChange(for: CGFloat.self) { geometry in
             geometry.contentOffset.y + geometry.contentInsets.top
         } action: { _, newValue in
-            progress = max(min(newValue / 75, 1), 0)
+            let progress: CGFloat = max(min(newValue / 75, 1), 0)
+            store.intent(.onScrollProgress(progress))
         }
     }
 
     @ViewBuilder
     func resizeableHeader() -> some View {
-        let progress = isFocused ? 1 : progress
+        let progress = store.state.isFocused ? 1 : store.state.progress
 
         VStack(spacing: 0) {
             HStack {
@@ -91,13 +107,22 @@ struct MoviesView: View {
 
             SearchBar(
                 placeHolderText: "Search Movie...",
-                searchText: $textInput,
-                isFocused: $isFocused
+                searchText: Binding(get: {
+                    store.state.textInput
+                }, set: {
+                    store.intent(.onSearchInputChange($0))
+                }),
+                isFocused: Binding(get: {
+                    store.state.isFocused
+                }, set: {
+                    store.intent(.onFocusSearchBar($0))
+                })
             )
+            .submitLabel(.search)
             .background(.white)
             .padding(.bottom, 8)
-            .padding(.top, isFocused ? -8 : 0)
-            .padding(.horizontal, isFocused ? 4 : 16)
+            .padding(.top, store.state.isFocused ? -8 : 0)
+            .padding(.horizontal, store.state.isFocused ? 4 : 16)
         }
         .background {
             ProgressiveBlurView()
@@ -113,7 +138,10 @@ struct MoviesView: View {
 
     private nonisolated func offsetY(_ proxy: GeometryProxy) -> CGFloat {
         let minY = proxy.frame(in: .scrollView(axis: .vertical)).minY
-        return minY > 0 ? (isFocused ? -minY : 0) : -minY
+        Task { @MainActor in
+            return minY > 0 ? (store.state.isFocused ? -minY : 0) : -minY
+        }
+        return -minY
     }
 
     func movieCardView(_ movie: Movie) -> some View {
@@ -134,7 +162,7 @@ struct MoviesView: View {
             .clipShape(.rect(cornerRadius: 8))
             .contentShape(.rect(cornerRadius: 8))
             .onTapGesture {
-                coordinator.rect = frame
+//                let movieId = movie.
                 router.present(.detail(movieId: "tt10982034"))
             }
         }.frame(height: 184)

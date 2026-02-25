@@ -13,47 +13,31 @@ struct Movie: Identifiable, Hashable {
     var posterURL: String
 }
 
+struct MovieRecentSearch: Identifiable, Hashable, Codable {
+    private(set) var id: UUID = .init()
+    var item: String
+}
+
+struct MovieSearch: Hashable {
+    var movieList: [Movie]
+    var recentSearch: [MovieRecentSearch]
+
+    init(
+        movieList: [Movie] = [],
+        recentSearch: [MovieRecentSearch] = []
+    ) {
+        self.movieList = movieList
+        self.recentSearch = recentSearch
+    }
+}
+
 struct MoviesState: Equatable, Sendable {
-    var movies: [Movie] = [
-        .init(title: "Trying", posterURL: "https://m.media-amazon.com/images/M/MV5BMzdhZTBlZTgtOGRlNC00ZGVmLWI0NjYtNzljMWE0YzM3Nzg2XkEyXkFqcGc@._V1_SX300.jpg"),
-        .init(title: "Trying", posterURL: "https://m.media-amazon.com/images/M/MV5BMzdhZTBlZTgtOGRlNC00ZGVmLWI0NjYtNzljMWE0YzM3Nzg2XkEyXkFqcGc@._V1_SX300.jpg"),
-        .init(title: "Trying", posterURL: "https://m.media-amazon.com/images/M/MV5BMzdhZTBlZTgtOGRlNC00ZGVmLWI0NjYtNzljMWE0YzM3Nzg2XkEyXkFqcGc@._V1_SX300.jpg"),
-        .init(title: "Trying", posterURL: "https://m.media-amazon.com/images/M/MV5BMzdhZTBlZTgtOGRlNC00ZGVmLWI0NjYtNzljMWE0YzM3Nzg2XkEyXkFqcGc@._V1_SX300.jpg"),
-        .init(title: "Trying", posterURL: "https://m.media-amazon.com/images/M/MV5BMzdhZTBlZTgtOGRlNC00ZGVmLWI0NjYtNzljMWE0YzM3Nzg2XkEyXkFqcGc@._V1_SX300.jpg"),
-        .init(title: "Trying", posterURL: "https://m.media-amazon.com/images/M/MV5BMzdhZTBlZTgtOGRlNC00ZGVmLWI0NjYtNzljMWE0YzM3Nzg2XkEyXkFqcGc@._V1_SX300.jpg"),
-        .init(title: "Trying", posterURL: "https://m.media-amazon.com/images/M/MV5BMzdhZTBlZTgtOGRlNC00ZGVmLWI0NjYtNzljMWE0YzM3Nzg2XkEyXkFqcGc@._V1_SX300.jpg"),
-        .init(title: "Trying", posterURL: "https://m.media-amazon.com/images/M/MV5BMzdhZTBlZTgtOGRlNC00ZGVmLWI0NjYtNzljMWE0YzM3Nzg2XkEyXkFqcGc@._V1_SX300.jpg"),
-        .init(title: "Trying", posterURL: "https://m.media-amazon.com/images/M/MV5BMzdhZTBlZTgtOGRlNC00ZGVmLWI0NjYtNzljMWE0YzM3Nzg2XkEyXkFqcGc@._V1_SX300.jpg"),
-        .init(title: "Trying", posterURL: "https://m.media-amazon.com/images/M/MV5BMzdhZTBlZTgtOGRlNC00ZGVmLWI0NjYtNzljMWE0YzM3Nzg2XkEyXkFqcGc@._V1_SX300.jpg"),
-        .init(title: "Trying", posterURL: "https://m.media-amazon.com/images/M/MV5BMzdhZTBlZTgtOGRlNC00ZGVmLWI0NjYtNzljMWE0YzM3Nzg2XkEyXkFqcGc@._V1_SX300.jpg"),
-        .init(title: "Trying", posterURL: "https://m.media-amazon.com/images/M/MV5BMzdhZTBlZTgtOGRlNC00ZGVmLWI0NjYtNzljMWE0YzM3Nzg2XkEyXkFqcGc@._V1_SX300.jpg"),
-        .init(title: "Trying", posterURL: "https://m.media-amazon.com/images/M/MV5BMzdhZTBlZTgtOGRlNC00ZGVmLWI0NjYtNzljMWE0YzM3Nzg2XkEyXkFqcGc@._V1_SX300.jpg"),
-        .init(title: "Trying", posterURL: "https://m.media-amazon.com/images/M/MV5BMzdhZTBlZTgtOGRlNC00ZGVmLWI0NjYtNzljMWE0YzM3Nzg2XkEyXkFqcGc@._V1_SX300.jpg"),
-        .init(title: "Trying", posterURL: "https://m.media-amazon.com/images/M/MV5BMzdhZTBlZTgtOGRlNC00ZGVmLWI0NjYtNzljMWE0YzM3Nzg2XkEyXkFqcGc@._V1_SX300.jpg"),
-        .init(title: "Trying", posterURL: "https://m.media-amazon.com/images/M/MV5BMzdhZTBlZTgtOGRlNC00ZGVmLWI0NjYtNzljMWE0YzM3Nzg2XkEyXkFqcGc@._V1_SX300.jpg"),
-        .init(title: "Trying", posterURL: "https://m.media-amazon.com/images/M/MV5BMzdhZTBlZTgtOGRlNC00ZGVmLWI0NjYtNzljMWE0YzM3Nzg2XkEyXkFqcGc@._V1_SX300.jpg"),
-        .init(title: "Trying", posterURL: "https://m.media-amazon.com/images/M/MV5BMzdhZTBlZTgtOGRlNC00ZGVmLWI0NjYtNzljMWE0YzM3Nzg2XkEyXkFqcGc@._V1_SX300.jpg"),
-        .init(title: "Trying", posterURL: "https://m.media-amazon.com/images/M/MV5BMzdhZTBlZTgtOGRlNC00ZGVmLWI0NjYtNzljMWE0YzM3Nzg2XkEyXkFqcGc@._V1_SX300.jpg"),
-        .init(title: "Trying", posterURL: "https://m.media-amazon.com/images/M/MV5BMzdhZTBlZTgtOGRlNC00ZGVmLWI0NjYtNzljMWE0YzM3Nzg2XkEyXkFqcGc@._V1_SX300.jpg"),
-        .init(title: "Trying", posterURL: "https://m.media-amazon.com/images/M/MV5BMzdhZTBlZTgtOGRlNC00ZGVmLWI0NjYtNzljMWE0YzM3Nzg2XkEyXkFqcGc@._V1_SX300.jpg"),
-        .init(title: "Trying", posterURL: "https://m.media-amazon.com/images/M/MV5BMzdhZTBlZTgtOGRlNC00ZGVmLWI0NjYtNzljMWE0YzM3Nzg2XkEyXkFqcGc@._V1_SX300.jpg"),
-        .init(title: "Trying", posterURL: "https://m.media-amazon.com/images/M/MV5BMzdhZTBlZTgtOGRlNC00ZGVmLWI0NjYtNzljMWE0YzM3Nzg2XkEyXkFqcGc@._V1_SX300.jpg"),
-        .init(title: "Trying", posterURL: "https://m.media-amazon.com/images/M/MV5BMzdhZTBlZTgtOGRlNC00ZGVmLWI0NjYtNzljMWE0YzM3Nzg2XkEyXkFqcGc@._V1_SX300.jpg"),
-        .init(title: "Trying", posterURL: "https://m.media-amazon.com/images/M/MV5BMzdhZTBlZTgtOGRlNC00ZGVmLWI0NjYtNzljMWE0YzM3Nzg2XkEyXkFqcGc@._V1_SX300.jpg"),
-        .init(title: "Trying", posterURL: "https://m.media-amazon.com/images/M/MV5BMzdhZTBlZTgtOGRlNC00ZGVmLWI0NjYtNzljMWE0YzM3Nzg2XkEyXkFqcGc@._V1_SX300.jpg"),
-        .init(title: "Trying", posterURL: "https://m.media-amazon.com/images/M/MV5BMzdhZTBlZTgtOGRlNC00ZGVmLWI0NjYtNzljMWE0YzM3Nzg2XkEyXkFqcGc@._V1_SX300.jpg"),
-        .init(title: "Trying", posterURL: "https://m.media-amazon.com/images/M/MV5BMzdhZTBlZTgtOGRlNC00ZGVmLWI0NjYtNzljMWE0YzM3Nzg2XkEyXkFqcGc@._V1_SX300.jpg"),
-        .init(title: "Trying", posterURL: "https://m.media-amazon.com/images/M/MV5BMzdhZTBlZTgtOGRlNC00ZGVmLWI0NjYtNzljMWE0YzM3Nzg2XkEyXkFqcGc@._V1_SX300.jpg"),
-        .init(title: "Trying", posterURL: "https://m.media-amazon.com/images/M/MV5BMzdhZTBlZTgtOGRlNC00ZGVmLWI0NjYtNzljMWE0YzM3Nzg2XkEyXkFqcGc@._V1_SX300.jpg"),
-        .init(title: "Trying", posterURL: "https://m.media-amazon.com/images/M/MV5BMzdhZTBlZTgtOGRlNC00ZGVmLWI0NjYtNzljMWE0YzM3Nzg2XkEyXkFqcGc@._V1_SX300.jpg"),
-        .init(title: "Trying", posterURL: "https://m.media-amazon.com/images/M/MV5BMzdhZTBlZTgtOGRlNC00ZGVmLWI0NjYtNzljMWE0YzM3Nzg2XkEyXkFqcGc@._V1_SX300.jpg"),
-        .init(title: "Trying", posterURL: "https://m.media-amazon.com/images/M/MV5BMzdhZTBlZTgtOGRlNC00ZGVmLWI0NjYtNzljMWE0YzM3Nzg2XkEyXkFqcGc@._V1_SX300.jpg"),
-        .init(title: "Trying", posterURL: "https://m.media-amazon.com/images/M/MV5BMzdhZTBlZTgtOGRlNC00ZGVmLWI0NjYtNzljMWE0YzM3Nzg2XkEyXkFqcGc@._V1_SX300.jpg"),
-        .init(title: "Trying", posterURL: "https://m.media-amazon.com/images/M/MV5BMzdhZTBlZTgtOGRlNC00ZGVmLWI0NjYtNzljMWE0YzM3Nzg2XkEyXkFqcGc@._V1_SX300.jpg"),
-        .init(title: "Trying", posterURL: "https://m.media-amazon.com/images/M/MV5BMzdhZTBlZTgtOGRlNC00ZGVmLWI0NjYtNzljMWE0YzM3Nzg2XkEyXkFqcGc@._V1_SX300.jpg"),
-        .init(title: "Trying", posterURL: "https://m.media-amazon.com/images/M/MV5BMzdhZTBlZTgtOGRlNC00ZGVmLWI0NjYtNzljMWE0YzM3Nzg2XkEyXkFqcGc@._V1_SX300.jpg"),
-        .init(title: "Trying", posterURL: "https://m.media-amazon.com/images/M/MV5BMzdhZTBlZTgtOGRlNC00ZGVmLWI0NjYtNzljMWE0YzM3Nzg2XkEyXkFqcGc@._V1_SX300.jpg"),
-    ]
+    var movies: [Movie] = []
+    var listItem = MovieSearch()
     var isLoading: Bool = false
     var errorMessage: String? = nil
+
+    var textInput: String = ""
+    var progress: CGFloat = 0
+    var isFocused: Bool = false
 }

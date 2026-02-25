@@ -11,7 +11,7 @@ import SwiftUI
 public struct SearchBar: View {
     var placeHolderText: String
     var iconImage: Image
-    var cancelIcon: Image = Image(systemName: "clear")
+    var cancelIcon: Image = Image(systemName: "xmark.circle")
     var borderColor = Color.gray
     var cornerRadius: CGFloat
     var height: CGFloat

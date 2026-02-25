@@ -39,7 +39,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jBq-vm-uH5">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="608.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="592.5"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="py1-2a-riz">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="310.5"/>
@@ -93,7 +93,7 @@
                             <color key="backgroundColor" red="0.97254901960784312" green="0.96862745098039216" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstItem="py1-2a-riz" firstAttribute="top" secondItem="jBq-vm-uH5" secondAttribute="top" id="EIw-0O-GI5"/>
-                                <constraint firstAttribute="bottom" secondItem="iNn-0G-r5q" secondAttribute="bottom" constant="16" id="Lt4-K1-TPt"/>
+                                <constraint firstAttribute="bottom" secondItem="iNn-0G-r5q" secondAttribute="bottom" id="Lt4-K1-TPt"/>
                                 <constraint firstAttribute="trailing" secondItem="py1-2a-riz" secondAttribute="trailing" id="a6J-zd-umK"/>
                                 <constraint firstAttribute="trailing" secondItem="iNn-0G-r5q" secondAttribute="trailing" constant="16" id="tVh-Ez-081"/>
                                 <constraint firstItem="iNn-0G-r5q" firstAttribute="top" secondItem="py1-2a-riz" secondAttribute="bottom" constant="16" id="vtf-6j-vXh"/>

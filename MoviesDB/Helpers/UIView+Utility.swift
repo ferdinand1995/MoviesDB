@@ -40,7 +40,6 @@ extension UIView {
     }
 
     func addBorderGradients() {
-        addBlackGradientLayerInForeground(frame: CGRect(x: 0, y: 0, width: frame.maxX, height: 100), colors: [.brokenWhiteDarkMode, .clear])
         addBlackGradientLayerInForeground(frame: CGRect(x: 0, y: frame.maxY - 100, width: frame.maxX, height: 100), colors: [.clear, .brokenWhiteDarkMode])
     }
 }
