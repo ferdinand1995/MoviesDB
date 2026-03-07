@@ -8,24 +8,32 @@
 import Foundation
 
 protocol MoviesRepository: Sendable {
-    var recentSearch: [MovieRecentSearch] { get }
+    func fetchRecentSearch() async -> [MovieRecentSearch]
     func updateRecentSearch(_ item: String) async
     func clearRecentSearch() async
 }
 
 actor MovieRepositoryImplementation: @preconcurrency MoviesRepository {
-    
     @UserDefault(key: UserDefaultsKey.recent, defaultValue: [])
-    private(set) var recentSearch: [MovieRecentSearch]
-    
-    func updateRecentSearch(_ item: String) async {
-        let newItem = MovieRecentSearch(item: item)
-        recentSearch.append(newItem)
+    private var recentSearch: [MovieRecentSearch]
+
+    private var searchTask: Task<Void, Never>?
+
+    func fetchRecentSearch() async -> [MovieRecentSearch] {
+        recentSearch
     }
-    
+
+    func updateRecentSearch(_ item: String) async {
+        searchTask?.cancel()
+        searchTask = Task {
+            try? await Task.sleep(for: .milliseconds(300))
+            guard !Task.isCancelled else { return }
+            let newItem = MovieRecentSearch(item: item)
+            recentSearch.append(newItem)
+        }
+    }
+
     func clearRecentSearch() async {
         recentSearch.removeAll()
     }
-    
-    
 }

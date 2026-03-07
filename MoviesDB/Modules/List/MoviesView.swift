@@ -45,7 +45,12 @@ struct MoviesView: View {
                         Divider()
                         LazyVStack(alignment: .leading, spacing: .Spacing.xxSmall) {
                             ForEach(store.state.listItem.recentSearch, id: \.id) { item in
-                                MovieRecentItem(itemName: item.item)
+                                MovieRecentItem(itemName: item.item) {
+                                    print("n")
+                                } clearItem: {
+                                    print("nm")
+                                }
+
                             }
                         }
                     }

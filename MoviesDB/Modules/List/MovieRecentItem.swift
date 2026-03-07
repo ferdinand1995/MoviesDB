@@ -8,29 +8,36 @@
 import SwiftUI
 
 struct MovieRecentItem: View {
-    
     let itemName: String
-    
+
+    var onClickItem: () -> ()
+    var clearItem: () -> ()
+
     var body: some View {
         VStack {
             HStack {
                 HStack {
-                    Text(itemName)
-                        .font(.body)
-                        .padding()
+                    Button {
+                        onClickItem()
+                    } label: {
+                        Text(itemName)
+                            .font(.body)
+                            .padding(.leading, .Spacing.xxSmall)
+
+                    }.buttonStyle(PlainButtonStyle())
                     Spacer()
-                    Image(systemName: "chevron.forward")
-                        .padding()
+                    Button {
+                        clearItem()
+                    } label: {
+                        Image(systemName: "xmark").padding(.trailing, .Spacing.xxSmall)
+                    }.buttonStyle(PlainButtonStyle())
                 }
             }
-        }
-        .background(.gray.opacity(0.1))
-        .cornerRadius(8)
-        .shadow(color: .gray.opacity(0.8), radius: 8, x: 6, y: 10)
-        
+            Divider()
+        }.padding(.top, .Spacing.xxSmall)
     }
 }
 
 #Preview {
-    MovieRecentItem(itemName: "RE")
+    MovieRecentItem(itemName: "RE", onClickItem: {}, clearItem: {})
 }

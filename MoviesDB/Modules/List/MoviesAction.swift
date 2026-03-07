@@ -14,6 +14,7 @@ enum MoviesAction: Sendable {
     case onFocusSearchBar(Bool)
     case onScrollProgress(CGFloat)
     case clearRecentSearch
+    case fetchRecentSearch([MovieRecentSearch])
 //    case moviesLoaded([Movie])
 //    case moviesFailed(String)
 

@@ -28,23 +28,33 @@ struct MoviesReducer: FeatureReducer {
         case .onSearchInputChange(let newValue):
             var next = state
             next.textInput = newValue
-            return [.newState(next), .run({ send in
+            return [.newState(next), .run({ [newValue] send in
+                guard !newValue.isEmpty else { return }
+                try? await Task.sleep(for: .milliseconds(300))
                 await repository.updateRecentSearch(newValue)
             })]
         case .onFocusSearchBar(let newValue):
             var next = state
             next.isFocused = newValue
-            return [.newState(next)]
+            return [.newState(next), .run({ send in
+                let result = await repository.fetchRecentSearch()
+                await send(.fetchRecentSearch(result))
+            })]
         case .onScrollProgress(let newValue):
             var next = state
             next.progress = newValue
             return [.newState(next)]
         case .fetchMovies:
             return []
-        case .onAppear:
+        case .fetchRecentSearch(let newValue):
             var next = state
-            next.listItem.recentSearch = repository.recentSearch
+            next.listItem.recentSearch = newValue
             return [.newState(next)]
+        case .onAppear:
+            return [.run({ send in
+                let result = await repository.fetchRecentSearch()
+                await send(.fetchRecentSearch(result))
+            })]
         }
     }
 }
